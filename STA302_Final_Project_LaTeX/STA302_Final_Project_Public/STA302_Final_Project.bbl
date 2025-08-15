@@ -1,0 +1,529 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Kozakiewicz2013}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=72913b48634e1767a5cc002f96c61255}{%
+           family={Badowska-Kozakiewicz},
+           familyi={B\bibinithyphendelim K\bibinitperiod},
+           given={Anna\bibnamedelima M},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=28830f348cef4c44efc5ce1bbec93a75}{%
+           family={Sobol},
+           familyi={S\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod}}}%
+        {{hash=522d2692db301648ed55cde4aa8dad47}{%
+           family={Patera},
+           familyi={P\bibinitperiod},
+           given={Janusz},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8cf6e95e7c5a27b8daf7c19ad284ccbf}{%
+           family={Kozłowski},
+           familyi={K\bibinitperiod},
+           given={Wojciech},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{aa1e357112556d6c43f0c2d8ef3e0c55}
+      \strng{fullhash}{e59f5c044f609473de4570869fcf5331}
+      \strng{fullhashraw}{e59f5c044f609473de4570869fcf5331}
+      \strng{bibnamehash}{aa1e357112556d6c43f0c2d8ef3e0c55}
+      \strng{authorbibnamehash}{aa1e357112556d6c43f0c2d8ef3e0c55}
+      \strng{authornamehash}{aa1e357112556d6c43f0c2d8ef3e0c55}
+      \strng{authorfullhash}{e59f5c044f609473de4570869fcf5331}
+      \strng{authorfullhashraw}{e59f5c044f609473de4570869fcf5331}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PubMed}
+      \field{note}{Validation of IHC methods for receptor status}
+      \field{title}{Immunohistochemical evaluation of human epidermal growth factor receptor 2 and estrogen and progesterone receptors in invasive breast cancer in women}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb https://pubmed.ncbi.nlm.nih.gov/23847668/
+      \endverb
+      \verb{url}
+      \verb https://pubmed.ncbi.nlm.nih.gov/23847668/
+      \endverb
+    \endentry
+    \entry{Fang2011}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=be20cf70d3f1e2538582c6235ef8fa74}{%
+           family={Fang},
+           familyi={F\bibinitperiod},
+           given={Qiaojun},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=afa3d433e8ebf1d9ef991e8bb4bc671f}{%
+           family={Kani},
+           familyi={K\bibinitperiod},
+           given={Kian},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0983d196b1101f926ea06607a8ed35e8}{%
+           family={Faca},
+           familyi={F\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=c4c338db452298ba7661a0bcdbc26ae8}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Wenxuan},
+           giveni={W\bibinitperiod}}}%
+        {{hash=2075ed5f00e45e9ee3f0dcecd09bc398}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Qing},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=a8d59c7efe6e99c22632b132d2e721b7}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anjali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f592b9cd7460601ca24498c82bd7f697}
+      \strng{fullhash}{3d047aff4ea03a6e60277851bbed2bad}
+      \strng{fullhashraw}{3d047aff4ea03a6e60277851bbed2bad}
+      \strng{bibnamehash}{f592b9cd7460601ca24498c82bd7f697}
+      \strng{authorbibnamehash}{f592b9cd7460601ca24498c82bd7f697}
+      \strng{authornamehash}{f592b9cd7460601ca24498c82bd7f697}
+      \strng{authorfullhash}{3d047aff4ea03a6e60277851bbed2bad}
+      \strng{authorfullhashraw}{3d047aff4ea03a6e60277851bbed2bad}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{number}{7}
+      \field{title}{Impact of Protein Stability, Cellular Localization, and Abundance on Proteomic Detection of Tumor-Derived Proteins in Plasma}
+      \field{volume}{6}
+      \field{year}{2011}
+      \field{pages}{e22691}
+      \range{pages}{-1}
+      \verb{urlraw}
+      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC3146523/
+      \endverb
+      \verb{url}
+      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC3146523/
+      \endverb
+    \endentry
+    \entry{Jones2023}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=7c05443923d3236f5f8fd24249a4485a}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=21cefa08d01930d785d47c6c3c8149b7}{%
+           family={Dent},
+           familyi={D\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=70ad01c7a2f409cde38227d6c8fd788e}{%
+           family={Higo},
+           familyi={H\bibinitperiod},
+           given={Tomoaki},
+           giveni={T\bibinitperiod}}}%
+        {{hash=12a00e8213a4b10d6739ca21f5de30bf}{%
+           family={Roumeliotis},
+           familyi={R\bibinitperiod},
+           given={Theodoros},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c43609126ee510c62777a2ec43ff6ee6}{%
+           family={Garcia},
+           familyi={G\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8c41252883c260c36e72a32424cd0e26}{%
+           family={Shree},
+           familyi={S\bibinitperiod},
+           given={Hansa},
+           giveni={H\bibinitperiod}}}%
+        {{hash=9535117373df6455890c42e7b1992dd0}{%
+           family={Choudhary},
+           familyi={C\bibinitperiod},
+           given={Jyoti},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a18d91cb5abf3d50de8dfda1ae5b2ac4}{%
+           family={Pederson},
+           familyi={P\bibinitperiod},
+           given={Malin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2db1e62724ff0c5e3eab86fe8144c25a}{%
+           family={Bakal},
+           familyi={B\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{320bf5749cb4b54fc1fb2c814d096f2f}
+      \strng{fullhash}{86150ec7bc6c0ba913bde66ad2ce8247}
+      \strng{fullhashraw}{86150ec7bc6c0ba913bde66ad2ce8247}
+      \strng{bibnamehash}{320bf5749cb4b54fc1fb2c814d096f2f}
+      \strng{authorbibnamehash}{320bf5749cb4b54fc1fb2c814d096f2f}
+      \strng{authornamehash}{320bf5749cb4b54fc1fb2c814d096f2f}
+      \strng{authorfullhash}{86150ec7bc6c0ba913bde66ad2ce8247}
+      \strng{authorfullhashraw}{86150ec7bc6c0ba913bde66ad2ce8247}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science Advances}
+      \field{number}{4}
+      \field{title}{Characterization of proteome-size scaling by integrative omics reveals mechanisms of proliferation control in cancer}
+      \field{volume}{9}
+      \field{year}{2023}
+      \field{pages}{eadd0636}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1126/sciadv.add0636
+      \endverb
+      \verb{urlraw}
+      \verb https://www.science.org/doi/10.1126/sciadv.add0636
+      \endverb
+      \verb{url}
+      \verb https://www.science.org/doi/10.1126/sciadv.add0636
+      \endverb
+    \endentry
+    \entry{Li2015}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=a69a3ea94ed22b07b81320f7ee8ced69}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Huiyan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=cebccb37f4cc2842328436cde1d5d016}{%
+           family={Bergeron},
+           familyi={B\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=17ab28d1bb52608aad790701d8282f1c}{%
+           family={Annis},
+           familyi={A\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0bada410f578c414cf52519daf4645b8}{%
+           family={Siegel},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=cd96349169c1e51d804a37bd9a84bbed}{%
+           family={Juncker},
+           familyi={J\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{20b1e3e427f69fc9f70fbb428598dce3}
+      \strng{fullhash}{9000060e416bd45253a3760f3ee4ecd0}
+      \strng{fullhashraw}{9000060e416bd45253a3760f3ee4ecd0}
+      \strng{bibnamehash}{20b1e3e427f69fc9f70fbb428598dce3}
+      \strng{authorbibnamehash}{20b1e3e427f69fc9f70fbb428598dce3}
+      \strng{authornamehash}{20b1e3e427f69fc9f70fbb428598dce3}
+      \strng{authorfullhash}{9000060e416bd45253a3760f3ee4ecd0}
+      \strng{authorfullhashraw}{9000060e416bd45253a3760f3ee4ecd0}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLOS ONE}
+      \field{number}{7}
+      \field{title}{Serial Analysis of 38 Proteins during the Progression of Human Breast Tumor in Mice Using an Antibody Colocalization Microarray}
+      \field{volume}{10}
+      \field{year}{2015}
+      \field{pages}{e0130302}
+      \range{pages}{-1}
+      \verb{urlraw}
+      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC4390249/
+      \endverb
+      \verb{url}
+      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC4390249/
+      \endverb
+    \endentry
+    \entry{Min2021}{article}{}{}
+      \name{author}{10}{}{%
+        {{hash=fe45580d34c31239a12473ed902937ff}{%
+           family={Min},
+           familyi={M\bibinitperiod},
+           given={Seung\bibnamedelima Ki},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=0c7d758e8aa48bcc9326c61942294d4e}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Se\bibnamedelima Kyung},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=e385b56f8ff13c4213664193eb8af26f}{%
+           family={1},
+           familyi={1\bibinitperiod},
+           given={Jinsun\bibnamedelima Woo},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=43a72c4fa6917b4cd72846c0cecd219d}{%
+           family={Jung},
+           familyi={J\bibinitperiod},
+           given={Sung\bibnamedelima Mi},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=6a28f72f2c9307e871704238e98aa8ec}{%
+           family={Ryu},
+           familyi={R\bibinitperiod},
+           given={Jai\bibnamedelima Min},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=d5a2c200952f53e895b61b4a24d094d8}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Jonghan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7ca112d5f533ac6d29308fbd2d5295e6}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Jeong\bibnamedelima Eon},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=20cfdcf8cecb2ab7e6b42967b41e1b2a}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Seok\bibnamedelima Won},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=f0fb9e1482f430de8c9123733647da9b}{%
+           family={Chae},
+           familyi={C\bibinitperiod},
+           given={Byung\bibnamedelima Joo},
+           giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=61846e51534f03c626af49eb12590c2a}{%
+           family={Nam},
+           familyi={N\bibinitperiod},
+           given={Seok\bibnamedelima Jin},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f4a154e580f20183e857f4015516537}
+      \strng{fullhash}{1f4037922f48acfc386c36d59333ac83}
+      \strng{fullhashraw}{1f4037922f48acfc386c36d59333ac83}
+      \strng{bibnamehash}{0f4a154e580f20183e857f4015516537}
+      \strng{authorbibnamehash}{0f4a154e580f20183e857f4015516537}
+      \strng{authornamehash}{0f4a154e580f20183e857f4015516537}
+      \strng{authorfullhash}{1f4037922f48acfc386c36d59333ac83}
+      \strng{authorfullhashraw}{1f4037922f48acfc386c36d59333ac83}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Breast Cancer}
+      \field{title}{Relation Between Tumor Size and Lymph Node Metastasis According to Subtypes of Breast Cancer}
+      \field{year}{2021}
+      \field{pages}{75\bibrangedash 84}
+      \range{pages}{10}
+      \verb{urlraw}
+      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC7920868/
+      \endverb
+      \verb{url}
+      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC7920868/
+      \endverb
+    \endentry
+    \entry{Thakar2011}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=86e56e623b4bce3d3ae02f32b1e161f2}{%
+           family={Thakar},
+           familyi={T\bibinitperiod},
+           given={Jigisha},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fb9e8134f4ef2a65c5a458bdeb23f559}{%
+           family={Mehta},
+           familyi={M\bibinitperiod},
+           given={Divyes},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{34f95e82275df2fe84969393e7ab8155}
+      \strng{fullhash}{34f95e82275df2fe84969393e7ab8155}
+      \strng{fullhashraw}{34f95e82275df2fe84969393e7ab8155}
+      \strng{bibnamehash}{34f95e82275df2fe84969393e7ab8155}
+      \strng{authorbibnamehash}{34f95e82275df2fe84969393e7ab8155}
+      \strng{authornamehash}{34f95e82275df2fe84969393e7ab8155}
+      \strng{authorfullhash}{34f95e82275df2fe84969393e7ab8155}
+      \strng{authorfullhashraw}{34f95e82275df2fe84969393e7ab8155}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Review on PR and ER/PR-positive breast cancers}
+      \field{title}{A Review of an Unfavorable Subset of Breast Cancer: Estrogen Receptor Positive Progesterone Receptor Negative}
+      \verb{urlraw}
+      \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3228102/#sec5
+      \endverb
+      \verb{url}
+      \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3228102/#sec5
+      \endverb
+    \endentry
+    \entry{Walter2020}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=25fdf5ae8dd8bf6be161cc8ad6445bd7}{%
+           family={Walter},
+           familyi={W\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=8e34a8539b7cff2229780ed799aaa8ec}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={Chiara},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8fc7f192803cd7e33f46a8be47911157}{%
+           family={Deutsch},
+           familyi={D\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=99e7bf2f18caf86e933a6856a5f0eb39}{%
+           family={Ersing},
+           familyi={E\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod}}}%
+        {{hash=aa1d7e8aa38967ad9fba3bb365883ee2}{%
+           family={Nees},
+           familyi={N\bibinitperiod},
+           given={Juliane},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab00729a9e6612eeb867052b4c95c484}
+      \strng{fullhash}{373c92d647aeb8e3f9358ef09b142c98}
+      \strng{fullhashraw}{373c92d647aeb8e3f9358ef09b142c98}
+      \strng{bibnamehash}{ab00729a9e6612eeb867052b4c95c484}
+      \strng{authorbibnamehash}{ab00729a9e6612eeb867052b4c95c484}
+      \strng{authornamehash}{ab00729a9e6612eeb867052b4c95c484}
+      \strng{authorfullhash}{373c92d647aeb8e3f9358ef09b142c98}
+      \strng{authorfullhashraw}{373c92d647aeb8e3f9358ef09b142c98}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PubMed}
+      \field{note}{Evidence of ER/HER2/PR discordance; not studied here}
+      \field{title}{Estrogen, progesterone, and human epidermal growth factor receptor 2 discordance between primary and metastatic breast cancer}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://pubmed.ncbi.nlm.nih.gov/32613540/
+      \endverb
+      \verb{url}
+      \verb https://pubmed.ncbi.nlm.nih.gov/32613540/
+      \endverb
+    \endentry
+    \entry{Xu2021}{article}{}{}
+      \name{author}{10}{}{%
+        {{hash=691630b9de9459bd83fba484c35a4253}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9c4f74447bd064e137b853534877a881}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=059d68273d9db0bd3d40e8e646202240}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=61ad10c626e1d641e0b1d7b5f48d3233}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=1f26f664835ac6c347db22001b657f1a}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ef065b28c31984323fd6d3483d29aafd}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=199bb51203651a61c1509f581bb23169}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0f3e0cdea592f7a95f0d93e656878cbe}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=7bb074c37d04e2fb30a473aa12102ae1}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c6aa7dbbb9c85c16fe1f215275ea2431}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{88b43f41bc0946695ee331389d80f217}
+      \strng{fullhash}{8f643f30dfc27bd14dacc05929536a5b}
+      \strng{fullhashraw}{8f643f30dfc27bd14dacc05929536a5b}
+      \strng{bibnamehash}{88b43f41bc0946695ee331389d80f217}
+      \strng{authorbibnamehash}{88b43f41bc0946695ee331389d80f217}
+      \strng{authornamehash}{88b43f41bc0946695ee331389d80f217}
+      \strng{authorfullhash}{8f643f30dfc27bd14dacc05929536a5b}
+      \strng{authorfullhashraw}{8f643f30dfc27bd14dacc05929536a5b}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Oncology}
+      \field{note}{Paper describing DL-based prediction model}
+      \field{title}{Predicting Axillary Lymph Node Metastasis in Early Breast Cancer Using Deep Learning on Primary Tumor Biopsy Slides}
+      \field{volume}{11}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.3389/fonc.2021.75900
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3389/fonc.2021.75900
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3389/fonc.2021.75900
+      \endverb
+    \endentry
+    \entry{Zhu2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=308ed395cd2160a841950d0ebbcada85}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Chuang},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{308ed395cd2160a841950d0ebbcada85}
+      \strng{fullhash}{308ed395cd2160a841950d0ebbcada85}
+      \strng{fullhashraw}{308ed395cd2160a841950d0ebbcada85}
+      \strng{bibnamehash}{308ed395cd2160a841950d0ebbcada85}
+      \strng{authorbibnamehash}{308ed395cd2160a841950d0ebbcada85}
+      \strng{authornamehash}{308ed395cd2160a841950d0ebbcada85}
+      \strng{authorfullhash}{308ed395cd2160a841950d0ebbcada85}
+      \strng{authorfullhashraw}{308ed395cd2160a841950d0ebbcada85}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/bupt-ai-cz/BALNMP?tab=readme-ov-file}}
+      \field{month}{10}
+      \field{note}{Dataset repository}
+      \field{title}{Predicting Axillary Lymph Node Metastasis in Early Breast Cancer Using Deep Learning on Primary Tumour Biopsy Slides, BCNB Dataset}
+      \field{year}{2021}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
