@@ -1,0 +1,279 @@
+```{r}
+library(tidyverse)
+library(readxl)
+library(ggplot2)
+library(broom)
+library(MASS)
+library(car)
+library(GGally)
+library(skimr)
+library(gridExtra)
+library(broom)
+
+```
+
+```{r}
+data <- read_csv("patient-clinical-data-csv.csv")
+
+# Clean Ki67
+data$Ki67 <- data$Ki67 %>%
+  str_trim() %>%
+  str_replace_all("％|%", "") %>%
+  str_replace_all("＜", "<") %>%
+  str_replace_all("＞", ">")
+
+data <- data %>% filter(!str_detect(Ki67, "^<|^>"))
+
+data$Ki67 <- sapply(data$Ki67, function(x) {
+  if (is.na(x)) return(NA_real_)
+  if (str_detect(x, "^-?\\d+\\.?\\d*\\s*-\\s*-?\\d+\\.?\\d*$")) {
+    parts <- as.numeric(str_split(x, "-", simplify = TRUE))
+    return(mean(parts, na.rm = TRUE))
+  }
+  return(as.numeric(x))
+})
+
+# Normalize Ki67 to proportion
+data$Ki67 <- ifelse(data$Ki67 > 1, data$Ki67 / 100, data$Ki67)
+
+# Encode categorical variables
+data <- data %>%
+  mutate(
+    ER = case_when(ER == "Positive" ~ 1, ER == "Negative" ~ 0),
+    PR = case_when(PR == "Positive" ~ 1, PR == "Negative" ~ 0),
+    HER2 = case_when(HER2 == "Positive" ~ 1, HER2 == "Negative" ~ 0),
+    `Tumour Type` = as.factor(`Tumour Type`),
+    `Molecular subtype` = as.factor(`Molecular subtype`)
+  )
+```
+
+```{r}
+hist(data$`Tumour Size(cm)`, xlab = "Tumour size", main = "Histogram of Tumour Size")
+hist(sqrt(data$`Tumour Size(cm)`), xlab = "Tumour size", main = "Histogram of sqrt(Tumour Size)")
+
+hist(data$`Age(years)`, xlab = "Patient Age(years)", main = "Histogram of Patient Age")
+hist(data$Ki67, xlab = "Ki67", main = "Histogram of Ki67")
+
+ggplot(data, aes(x = factor(ER))) +
+  geom_bar(aes(y = ..prop.., group = 1), fill = "lightgreen") +
+  labs(title = "Proportion of ER Status", x = "ER Status", y = "Proportion") +
+  theme_minimal()
+```
+
+```{r}
+pre_initial_model <- lm((`Tumour Size(cm)`) ~ `Age(years)` + Ki67 + ER + PR + HER2 + 
+                      `Tumour Type` + `Number of lymph node metastases` + `Molecular subtype`,
+                    data = data)
+summary(pre_initial_model)
+```
+
+```{r}
+par(mfrow = c(2,2))
+plot(pre_initial_model)
+
+```
+
+
+
+```{r}
+initial_model <- lm(sqrt(`Tumour Size(cm)`) ~ `Age(years)` + Ki67 + ER + PR + HER2 + 
+                      `Tumour Type` + `Number of lymph node metastases` + `Molecular subtype`,
+                    data = data)
+summary(initial_model)
+```
+
+```{r}
+par(mfrow = c(2,2))
+plot(initial_model)
+
+```
+```{r}
+vif(initial_model)
+
+```
+
+```{r}
+n <- nobs(initial_model)
+high_leverage <- which(hatvalues(initial_model) > 2 * length(coef(initial_model)) / n)
+cook_outliers <- which(cooks.distance(initial_model) > 1)
+dfbeta_outliers <- which(apply(abs(dfbetas(initial_model)) > 2 / sqrt(n), 1, any))
+list(leverage_points = high_leverage, cook_points = cook_outliers, dfbeta_points = dfbeta_outliers)
+
+```
+
+```{r}
+plot_scale_loc_by <- function(model, data, var, labels = NULL, save = FALSE) {
+  stopifnot(var %in% colnames(data))
+  mf  <- model.frame(model)             
+  aug <- augment(model)
+  byvar <- if (var %in% colnames(mf)) mf[[var]] else data[as.integer(rownames(mf)), var]
+  if (is.numeric(byvar) && length(unique(na.omit(byvar))) <= 3) {
+    if (!is.null(labels) && length(labels) == length(unique(byvar))) {
+      byvar <- factor(byvar, levels = sort(unique(byvar)), labels = labels)
+    } else if (all(sort(unique(na.omit(byvar))) %in% c(0,1))) {
+      byvar <- factor(byvar, levels = c(0,1), labels = c("Negative","Positive"))
+    } else {
+      byvar <- factor(byvar)
+    }
+  } else if (!is.factor(byvar)) {
+    byvar <- factor(byvar)
+  }
+  df <- aug
+  df$group_var <- byvar
+  df$sqrt_std_resid <- sqrt(abs(df$.std.resid))
+  p <- ggplot(df, aes(x = .fitted, y = sqrt_std_resid, color = group_var)) +
+    geom_point(alpha = 0.6, size = 2) +
+    geom_smooth(method = "loess", se = FALSE, color = "black", linetype = "dashed") +
+    labs(title = paste0("Scale-Location Plot Colored by ", var),
+         x = "Fitted Values",
+         y = expression(sqrt("|Standardized Residuals|")),
+         color = var) +
+    theme_minimal(base_size = 14)
+  if (isTRUE(save)) {
+    fn <- paste0("scale_location_by_", gsub("\\s+|[/`]", "_", var), ".png")
+    ggsave(fn, plot = p, width = 8, height = 5.5, dpi = 300)
+    message("Saved: ", fn)
+  }
+  p
+}
+
+```
+
+
+```{r}
+plot_scale_loc_by(initial_model, data, "HER2")
+plot_scale_loc_by(initial_model, data, "ER")
+plot_scale_loc_by(initial_model, data, "PR")
+plot_scale_loc_by(initial_model, data, "Tumour Type")
+plot_scale_loc_by(initial_model, data, "Molecular subtype")
+
+``` 
+
+```{r}
+# Analysing the outliers, see section 3.5 onwards and then write in the results
+n <- nobs(initial_model)
+aug <- augment(initial_model)
+
+# Leverage scatter plot
+lev_plot <- ggplot(aug, aes(x = seq_along(.hat), y = .hat)) +
+  geom_point(color = "darkgreen") +
+  geom_hline(yintercept = 2*length(coef(initial_model))/n, linetype = "dashed", color = "red") +
+  labs(title = "Leverage", x = "Observation", y = "Leverage") +
+  theme_minimal()
+
+# Histogram of leverage
+lev_hist <- ggplot(aug, aes(x = .hat)) +
+  geom_histogram(bins = 20, fill = "skyblue", color = "black") +
+  geom_vline(xintercept = 2*length(coef(initial_model))/n, linetype = "dashed", color = "red") +
+  labs(title = "Leverage Histogram", x = "Leverage", y = "Count") +
+  theme_minimal()
+
+# DFFITS plot
+dffits_vals <- dffits(initial_model)
+dffits_plot <- ggplot(data.frame(obs=seq_along(dffits_vals), dffits=dffits_vals), 
+                      aes(x=obs, y=dffits)) +
+  geom_point(color = "purple") +
+  geom_hline(yintercept = 2*sqrt(length(coef(initial_model))/n), linetype="dashed", color="red") +
+  labs(title="DFFITS", x="Observation", y="DFFITS") +
+  theme_minimal()
+
+# DFBETAs plot (max across coefficients for each obs)
+dfbeta_vals <- apply(abs(dfbetas(initial_model)), 1, max)
+dfbeta_plot <- ggplot(data.frame(obs=seq_along(dfbeta_vals), dfbeta=dfbeta_vals), 
+                      aes(x=obs, y=dfbeta)) +
+  geom_point(color = "orange") +
+  geom_hline(yintercept = 2/sqrt(n), linetype="dashed", color="red") +
+  labs(title="DFBETAs (max per obs)", x="Observation", y="DFBETA") +
+  theme_minimal()
+
+# Arrange in 2x2 grid
+grid.arrange(lev_plot, lev_hist, dffits_plot, dfbeta_plot, ncol = 2)
+```
+
+
+
+```{r}
+final_model <- MASS::stepAIC(initial_model, direction = "both", trace = FALSE)
+summary(final_model)
+
+coef_tbl <- summary(final_model)$coefficients
+if ("Ki67" %in% rownames(coef_tbl)) {
+  print(coef_tbl["Ki67", , drop = FALSE])
+} else {
+  message("Ki67 not in final model")
+}
+```
+
+
+```{r}
+
+mf <- model.frame(final_model)
+resp_idx <- attr(terms(final_model), "response")
+xvars <- names(mf)[-resp_idx]
+cc <- stats::complete.cases(mf)
+template <- mf[which(cc)[1], -resp_idx, drop = FALSE]
+for (v in names(template)) {
+  if (is.numeric(mf[[v]])) template[[v]] <- median(mf[[v]], na.rm = TRUE)
+  if (is.factor(mf[[v]])) template[[v]] <- levels(mf[[v]])[1]
+}
+
+ki67_seq <- seq(min(mf[["Ki67"]], na.rm = TRUE), max(mf[["Ki67"]], na.rm = TRUE), length.out = 100)
+newdat <- template[rep(1, length(ki67_seq)), , drop = FALSE]
+newdat[["Ki67"]] <- ki67_seq
+
+pred <- predict(final_model, newdata = newdat, interval = "confidence")
+pred_df <- data.frame(
+  Ki67 = ki67_seq,
+  fit_sqrt = pred[, "fit"],
+  lwr_sqrt = pred[, "lwr"],
+  upr_sqrt = pred[, "upr"]
+)
+pred_df$tumour_cm <- pred_df$fit_sqrt^2
+pred_df$lwr_cm <- pred_df$lwr_sqrt^2
+pred_df$upr_cm <- pred_df$upr_sqrt^2
+
+ggplot(pred_df, aes(x = Ki67, y = tumour_cm)) +
+  geom_line(color = "violet") +
+  geom_ribbon(aes(ymin = lwr_cm, ymax = upr_cm), alpha = 0.2, fill = "violet") +
+  labs(title = "Predicted Tumour Size vs Ki67 (others held constant)",
+       x = "Ki67 (proportion)", y = "Predicted Tumour Size (cm)") +
+  theme_minimal()
+
+```
+```{r}
+
+#Extra work in the appendix comparing Ki67 and Number of Lymph node metastases (look at the paper cited)
+# Ki67
+ki67_seq <- seq(min(data$Ki67, na.rm = TRUE), max(data$Ki67, na.rm = TRUE), length.out = 100)
+template <- model.frame(final_model)[1, -attr(terms(final_model), "response"), drop = FALSE]
+for (v in names(template)) {
+  if (is.numeric(template[[v]])) template[[v]] <- median(template[[v]], na.rm = TRUE)
+  if (is.factor(template[[v]])) template[[v]] <- levels(template[[v]])[1]
+}
+newdat_ki67 <- template[rep(1, length(ki67_seq)), , drop = FALSE]
+newdat_ki67[["Ki67"]] <- ki67_seq
+pred_ki67 <- predict(final_model, newdata = newdat_ki67, interval = "confidence")
+
+# Lymph node metastases
+meta_seq <- seq(min(data$`Number of lymph node metastases`, na.rm = TRUE),
+                max(data$`Number of lymph node metastases`, na.rm = TRUE), length.out = 100)
+newdat_meta <- template[rep(1, length(meta_seq)), , drop = FALSE]
+newdat_meta[["Number of lymph node metastases"]] <- meta_seq
+pred_meta <- predict(final_model, newdata = newdat_meta, interval = "confidence")
+
+# Combine
+pred_df_ki67 <- data.frame(Predictor="Ki67", Value=ki67_seq, fit=pred_ki67[, "fit"]^2, lwr=pred_ki67[, "lwr"]^2, upr=pred_ki67[, "upr"]^2)
+pred_df_meta <- data.frame(Predictor="LymphNodeMet", Value=meta_seq, fit=pred_meta[, "fit"]^2, lwr=pred_meta[, "lwr"]^2, upr=pred_meta[, "upr"]^2)
+pred_combined <- rbind(pred_df_ki67, pred_df_meta)
+
+ggplot(pred_combined, aes(x=Value, y=fit)) +
+  geom_line(color="blue", linewidth=1) +
+  geom_ribbon(aes(ymin=lwr, ymax=upr), alpha=0.2, fill="blue") +
+  facet_wrap(~ Predictor, scales="free_x", labeller=labeller(Predictor=c(Ki67="Ki67", LymphNodeMet="Number of Lymph Node Metastases"))) +
+  labs(title="Predicted Tumour Size vs Ki67 & Number of Lymph Node Metastases",
+       x="Predictor Value", y="Predicted Tumour Size (cm)") +
+  theme_minimal(base_size=14)
+
+```
+
+
